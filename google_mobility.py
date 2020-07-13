@@ -9,6 +9,20 @@ import dash_core_components as dcc
 import dash_html_components as html
 
 
+def get_state_mobility(dataset, location):
+    state_mobility = []
+
+    for i in range(len(states)):
+        st = dataset[dataset['country_region'] == 'United States']
+        st = st[st['sub_region_1'] == states[i]]
+        st = st[st['sub_region_2'].isnull()]
+        state_mobility.append([state_codes[i], np.average(st[location][-7:])-np.average(st[location][-14:-7])])
+    
+    state_mobility = pd.DataFrame(state_mobility)
+    state_mobility.columns = ['State', 'Mobility']
+
+    return state_mobility
+
 # #url = "https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv?cachebust=6d352e35dcffafce"
 # url = 'https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv?cachebust=7d0cb7d254d29111'
 
@@ -56,20 +70,6 @@ state_codes = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE','FL', 'GA', 'HI', 
          'NH', 'NJ', 'NM', 'NY', 'ND','NC', 'OH', 'OK', 'OR', 'PA','RI', 'SC', 'SD', 'TN',
          'TX', 'UT', 'VT', 'VA', 'WA','WV', 'WI', 'WY']
 
-
-def get_state_mobility(dataset, location):
-    state_mobility = []
-
-    for i in range(len(states)):
-        st = dataset[dataset['country_region'] == 'United States']
-        st = st[st['sub_region_1'] == states[i]]
-        st = st[st['sub_region_2'].isnull()]
-        state_mobility.append([state_codes[i], np.average(st[location][-7:])-np.average(st[location][-14:-7])])
-    
-    state_mobility = pd.DataFrame(state_mobility)
-    state_mobility.columns = ['State', 'Mobility']
-
-    return state_mobility
 
 go_parks_heat_map = get_state_mobility(data,'parks')
 go_workplace_heat_map = get_state_mobility(data,'workplace')
@@ -174,29 +174,29 @@ residential_fig.update_layout(
     geo_scope='usa', # limite map scope to USA
 )
 
-app = dash.Dash(__name__)
+# app = dash.Dash(__name__)
 
-app.layout = html.Div(children=[html.H1(children=''),
-                        dcc.Graph(
-                                id = 'US Google Mobility',
-                                figure=us_fig
-                            ),
-                        html.H2(children=''),
-                        dcc.Graph(
-                                id = 'Parks Mobility Heat Map',
-                                figure=parks_fig
-                            ),
-                        html.H3(children=''),
-                        dcc.Graph(
-                                id = 'Workplace Mobility Heat Map',
-                                figure=workplace_fig
-                            ),
-                        html.H4(children=''),
-                        dcc.Graph(
-                                id = 'Residential Mobility Heat Map',
-                                figure=residential_fig
-                            ),
-                            ])
+# app.layout = html.Div(children=[html.H1(children=''),
+#                         dcc.Graph(
+#                                 id = 'US Google Mobility',
+#                                 figure=us_fig
+#                             ),
+#                         html.H2(children=''),
+#                         dcc.Graph(
+#                                 id = 'Parks Mobility Heat Map',
+#                                 figure=parks_fig
+#                             ),
+#                         html.H3(children=''),
+#                         dcc.Graph(
+#                                 id = 'Workplace Mobility Heat Map',
+#                                 figure=workplace_fig
+#                             ),
+#                         html.H4(children=''),
+#                         dcc.Graph(
+#                                 id = 'Residential Mobility Heat Map',
+#                                 figure=residential_fig
+#                             ),
+#                             ])
 
-if __name__ == '__main__':
-    app.run_server(debug=True)
+# if __name__ == '__main__':
+#     app.run_server(debug=True)

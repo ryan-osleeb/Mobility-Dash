@@ -130,19 +130,19 @@ TX_mobility = go.Scatter(
 US_am_data = [us_driving, us_rolling, us_walking, us_transit]
 Risk_am_data = [AZ_mobility, CA_mobility, FL_mobility, TX_mobility]
 
-fig1 = go.Figure(am_data = US_am_data)
+am_us = go.Figure(data = US_am_data)
 
-fig1.update_layout(
+am_us.update_layout(
      title_text = 'Apple Maps Mobility Index',
  )
 
-fig2 = go.Figure(am_data = Risk_am_data)
+am_risk = go.Figure(data = Risk_am_data)
 
-fig2.update_layout(
+am_risk.update_layout(
      title_text = 'Apple Maps Mobility Driving States At-Risk',
  )
 
-fig3 = go.Figure(am_data=go.Choropleth(
+am_heat = go.Figure(data=go.Choropleth(
     locations=heat_map['State'], # Spatial coordinates
     z = heat_map['Mobility'], # am_data to be color-coded
     locationmode = 'USA-states', # set of locations match entries in `locations`
@@ -150,29 +150,29 @@ fig3 = go.Figure(am_data=go.Choropleth(
     colorbar_title = "Mobility Index",
 ))
 
-fig3.update_layout(
+am_heat.update_layout(
     title_text = 'Apple Maps Mobility Heat Map',
     geo_scope='usa', # limite map scope to USA
 )
 
-app = dash.Dash(__name__)
+# app = dash.Dash(__name__)
 
-app.layout = html.Div(children=[html.H1(children=''),
-                        dcc.Graph(
-                                id = 'US Driving',
-                                figure=fig1
-                            ),
-                        html.H2(children=''),
-                        dcc.Graph(
-                                id = 'At Risk States',
-                                figure=fig2
-                            ),
-                        html.H3(children=''),
-                        dcc.Graph(
-                                id = 'US Heat Map',
-                                figure=fig3
-                            )
-                            ])
+# app.layout = html.Div(children=[html.H1(children=''),
+#                         dcc.Graph(
+#                                 id = 'US Driving',
+#                                 figure=fig1
+#                             ),
+#                         html.H2(children=''),
+#                         dcc.Graph(
+#                                 id = 'At Risk States',
+#                                 figure=fig2
+#                             ),
+#                         html.H3(children=''),
+#                         dcc.Graph(
+#                                 id = 'US Heat Map',
+#                                 figure=fig3
+#                             )
+#                             ])
 
-if __name__ == '__main__':
-    app.run_server(debug=True)
+# if __name__ == '__main__':
+#     app.run_server(debug=True)

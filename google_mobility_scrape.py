@@ -1,7 +1,8 @@
 import requests
 
 #url = "https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv?cachebust=6d352e35dcffafce"
-url = 'https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv?cachebust=7d0cb7d254d29111'
+#url = 'https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv?cachebust=7d0cb7d254d29111'
+url = "https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv?cachebust=2b9b736d653742eb"
 
 r = requests.get(url)
 url_content = r.content
