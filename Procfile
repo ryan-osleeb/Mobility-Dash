@@ -1,1 +1,1 @@
-web: gunicorn driving-mobility:app
+web: gunicorn mobility_dash:app
