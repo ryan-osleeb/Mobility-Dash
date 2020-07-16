@@ -1,1 +1,1 @@
-web: python apple_maps_dash.py
+worker: python apple_maps_dash.py
