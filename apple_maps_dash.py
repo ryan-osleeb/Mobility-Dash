@@ -4,9 +4,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 import plotly.express as px
-# import dash
-# import dash_core_components as dcc
-# import dash_html_components as html
+import dash
+import dash_core_components as dcc
+import dash_html_components as html
 
 #url = "https://covid19-static.cdn-apple.com/covid19-mobility-am_data/2009HotfixDev22/v3/en-us/applemobilitytrends-2020-06-06.csv"
 #url = "https://covid19-static.cdn-apple.com/covid19-mobility-am_data/2010HotfixDev17/v3/en-us/applemobilitytrends-2020-06-13.csv"
