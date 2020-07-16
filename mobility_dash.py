@@ -12,7 +12,8 @@ from google_mobility import us_fig, parks_fig, workplace_fig
 from ny_thruway import ny_cars_rolling
 
 
-app = dash.Dash(__name__)
+app = dash.Dash()
+server=app.server
 
 app.layout = html.Div(children=[html.H1(children=''),
                         dcc.Graph(

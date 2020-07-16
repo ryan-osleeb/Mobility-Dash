@@ -157,26 +157,26 @@ am_heat.update_layout(
     geo_scope='usa', # limite map scope to USA
 )
 
-app = dash.Dash()
-server=app.server
+# app = dash.Dash()
+# server=app.server
 
 
-app.layout = html.Div(children=[html.H1(children=''),
-                        dcc.Graph(
-                                id = 'US Driving',
-                                figure=am_us
-                            ),
-                        html.H2(children=''),
-                        dcc.Graph(
-                                id = 'At Risk States',
-                                figure=am_risk
-                            ),
-                        html.H3(children=''),
-                        dcc.Graph(
-                                id = 'US Heat Map',
-                                figure=am_heat
-                            )
-                            ])
+# app.layout = html.Div(children=[html.H1(children=''),
+#                         dcc.Graph(
+#                                 id = 'US Driving',
+#                                 figure=am_us
+#                             ),
+#                         html.H2(children=''),
+#                         dcc.Graph(
+#                                 id = 'At Risk States',
+#                                 figure=am_risk
+#                             ),
+#                         html.H3(children=''),
+#                         dcc.Graph(
+#                                 id = 'US Heat Map',
+#                                 figure=am_heat
+#                             )
+#                             ])
 
-if __name__ == '__main__':
-    app.run_server(debug=True)
+# if __name__ == '__main__':
+#     app.run_server(debug=True)
