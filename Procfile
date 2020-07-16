@@ -1,1 +1,1 @@
-worker: python apple_maps_dash.py
+web: gunicorn apple_maps_dash:server

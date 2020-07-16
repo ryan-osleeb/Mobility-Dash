@@ -157,7 +157,9 @@ am_heat.update_layout(
     geo_scope='usa', # limite map scope to USA
 )
 
-app = dash.Dash(__name__)
+app = dash.Dash()
+server=app.server
+
 
 app.layout = html.Div(children=[html.H1(children=''),
                         dcc.Graph(
