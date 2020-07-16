@@ -4,9 +4,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 import plotly.express as px
-import dash
-import dash_core_components as dcc
-import dash_html_components as html
+# import dash
+# import dash_core_components as dcc
+# import dash_html_components as html
 
 #url = "https://covid19-static.cdn-apple.com/covid19-mobility-am_data/2009HotfixDev22/v3/en-us/applemobilitytrends-2020-06-06.csv"
 #url = "https://covid19-static.cdn-apple.com/covid19-mobility-am_data/2010HotfixDev17/v3/en-us/applemobilitytrends-2020-06-13.csv"
@@ -19,7 +19,9 @@ import dash_html_components as html
 #csv_file.close()
 #file_folder = '/Users/rosleeb/ny_thruway'
 #am_data = pd.read_csv(f'{file_folder}/am_downloaded.csv')
-am_data = pd.read_csv('am_downloaded.csv')
+
+am_url = 'https://raw.githubusercontent.com/ryan-osleeb/Mobility-Dash/master/am_downloaded.csv'
+am_data = pd.read_csv(am_url)
 
 
 am_data["Map"] = am_data["region"] + "_" + am_data["transportation_type"]
@@ -160,17 +162,17 @@ am_heat.update_layout(
 # app.layout = html.Div(children=[html.H1(children=''),
 #                         dcc.Graph(
 #                                 id = 'US Driving',
-#                                 figure=fig1
+#                                 figure=am_us
 #                             ),
 #                         html.H2(children=''),
 #                         dcc.Graph(
 #                                 id = 'At Risk States',
-#                                 figure=fig2
+#                                 figure=am_risk
 #                             ),
 #                         html.H3(children=''),
 #                         dcc.Graph(
 #                                 id = 'US Heat Map',
-#                                 figure=fig3
+#                                 figure=am_heat
 #                             )
 #                             ])
 

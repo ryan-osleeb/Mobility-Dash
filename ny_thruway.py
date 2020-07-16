@@ -7,9 +7,11 @@ import plotly.express as px
 # import dash_core_components as dcc
 # import dash_html_components as html
 
+url_2019 = 'https://raw.githubusercontent.com/ryan-osleeb/Mobility-Dash/master/ny_car_average_2019.csv'
+url_2020 = 'https://raw.githubusercontent.com/ryan-osleeb/Mobility-Dash/master/ny_car_average_2020.csv'
 #download files
-data_2019 = pd.read_csv('ny_car_average_2019.csv')
-data_2020 = pd.read_csv('ny_car_average_2020.csv')
+data_2019 = pd.read_csv(url_2019)
+data_2020 = pd.read_csv(url_2020)
    
 rolling19 = go.Scatter(
                 y = data_2019['2019'],

@@ -4,9 +4,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 import plotly.express as px
-import dash
-import dash_core_components as dcc
-import dash_html_components as html
+# import dash
+# import dash_core_components as dcc
+# import dash_html_components as html
 
 
 def get_state_mobility(dataset, location):
@@ -32,7 +32,8 @@ def get_state_mobility(dataset, location):
 # csv_file.write(url_content)
 # csv_file.close()
 #file_folder = '/Users/rosleeb/google_mobility'
-data = pd.read_csv('go_downloaded.csv', dtype={'country_region_code': 'str',
+url = 'https://raw.githubusercontent.com/ryan-osleeb/Mobility-Dash/master/go_downloaded.csv'
+data = pd.read_csv(url, dtype={'country_region_code': 'str',
 																'country_region': 'str',
 																'sub_region_1': 'str',
 																'sub_region_2': 'str',
