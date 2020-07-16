@@ -1,1 +1,1 @@
-web: gunicorn apple_maps_dash:app
+web: python apple_maps_dash.py
